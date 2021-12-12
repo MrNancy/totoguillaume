@@ -3,5 +3,59 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-{% endblock %}
+<div class="w-100 d-flex justify-content-between">
+    <h5 class="text-white m-0">Partner</h5>
+    <a href="mailto:info@totoguillaume.com" class="text-decoration-none text-white" title="info@totoguillaume.com">
+        <span>info@totoguillaume.com</span>
+    </a>
+</div>
+<div style="content: ' ';height: 3px;background: white"></div>
+<div class="w-100 mt-3">
+    <div id="partner" class="mt-auto d-flex">
+        {% set i = 0 %}
+        {% for image in images %}
+            {% set i = i + 1 %}
+            {% if image == 'awoli.png' %}
+                {% set url = 'https://awoli.org/' %}
+            {% elseif image == 'NDB Holding.png' %}
+                {% set url = 'https://ndbholding.de/' %}
+            {% endif %}
+            <{% if url is defined %}a{% else %}div{% endif %} class="card logo-card me-3 text-decoration-none" {% if url is defined %}href="{{ url }}" target="_blank"{% endif %} style="{% if i % 2 == 0 %}background:#fff{% endif %}">
+                <div>
+                    <img class="logo m-2" src="{{ asset('partner/'~image) }}" alt="{{ image }}">
+                </div>
+                <small class="w-100 {% if i % 2 == 0 %}text-black{% else %}text-white{% endif %} text-center">{{ image|replace({'.png':'', '.jpg':''}) }}</small>
+            </{% if url is defined %}a{% else %}div{% endif %}>
+        {% endfor %}
+        {% for j in 0..1 %}
+            {% set i = i + 1 %}
+            <div class="card logo-card me-3" style="{% if i % 2 == 0 %}background:#fff{% endif %}">
+                <img src="{{ asset('empty.png') }}" class="logo m-2" alt="">
+            </div>
+        {% endfor %}
+    </div>
+    <style>
+        .logo {
+            width: auto;
+            height: 50px
+        }
+
+        .logo-card {
+            transition: all .5s ease-in-out;
+            padding: 2px;
+            justify-content: center;
+            text-align: center;
+            min-width: 95px;
+        }
+
+        #partner {
+            overflow-x: auto;
+        }
+
+        .logo-card:hover {
+            transform: scale(.8);
+            border-radius: 5px;
+        }
+
+    </style>
+    {% endblock %}

@@ -1,0 +1,10 @@
+contact: 'Kontakt'
+imprint: 'Impressum'
+send: 'Senden'
+contact-message:
+  failed: 'Die Daten konnten nicht erfolgreich übertragen werden.'
+  success: 'Ihre Anfrage wurde uns erfolgreich übermittelt.'
+  subject: 'Betreff'
+  email: 'E-Mail'
+  message: 'Nachricht'
+  headline: 'Kontakt aufnehmen'

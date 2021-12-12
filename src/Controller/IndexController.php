@@ -11,6 +11,16 @@ class IndexController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(): Response
     {
-        return $this->render('index/index.html.twig');
+        $images = [];
+        $dir = new \DirectoryIterator('./partner');
+        foreach ($dir as $fileInfo) {
+            if (!$fileInfo->isDot()) {
+                $images[] = $fileInfo->getFilename();
+            }
+        }
+
+        return $this->render('index/index.html.twig', [
+            'images' => $images,
+        ]);
     }
 }

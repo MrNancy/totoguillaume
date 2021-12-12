@@ -25,6 +25,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "animate.css": "^4.1.1"
+        "@fortawesome/fontawesome-free": "^5.15.4",
+        "animate.css": "^4.1.1",
+        "flag-icon-css": "^4.1.6"
     }
 }

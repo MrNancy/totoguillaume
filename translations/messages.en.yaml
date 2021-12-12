@@ -1,0 +1,9 @@
+contact: 'Contact'
+imprint: 'Imprint'
+send: 'Send'
+contact-message:
+  failed: 'The data could not be transferred successfully.'
+  success: 'Your request was successfully sent to us.'
+  subject: 'Subject'
+  email: 'Email'
+  message: 'Message'

@@ -33,26 +33,14 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 </head>
-<body {{ stimulus_controller('symfony/ux-swup/swup', {containers: ['#content', '#totoNavbar', '#footer'],theme: 'slide',animateHistoryBrowsing: true}) }}>
+<body>
 {% include 'index/background.html.twig' %}
 {% include 'index/navbar.html.twig' %}
-<div id="scroller">
-    <div class="container p-3 animate__animated animate__fadeInUpBig" id="content-container">
-        <h1 id="headline">Toto Guillaume</h1>
-        <div id="content">
-            <p>
+<div id="scroller" class="h-100">
+    <div class="w-100 p-3 animate__animated animate__fadeInUpBig h-100 d-flex flex-column" id="content-container">
+        <div class="mt-auto">
                 {% block body %}{% endblock %}
-                {{ block('body') }}
-                {{ block('body') }}
-                {{ block('body') }}
-                {{ block('body') }}
-                {{ block('body') }}
-                {{ block('body') }}
-            </p>
         </div>
-        <small id="footer">
-            <a href="{{ path('imprint') }}">Impressum</a>
-        </small>
     </div>
 </div>
 

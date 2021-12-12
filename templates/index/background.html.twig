@@ -1,6 +1,57 @@
-<div class="background" style="background: url('{{ asset('bg.png') }}') repeat center center fixed"></div>
+<div class="background" style="background: url('{{ asset('bg.png') }}') repeat center center fixed;opacity: .4"></div>
 <div class="background-logo">
     <div class="background-logo-mover ">
         <img src="{{ asset('lion-face.png') }}" class="" alt="">
     </div>
 </div>
+
+<span id="headline">
+    <span>
+    {% set i  = 0 %}
+        {% for letter in ['T','o','t','o'] %}
+            {% set i  = i + 1 %}
+            <span style="animation-delay: {{ i }}00ms" class="headline-text headline-text-dark animate__animated animate__fadeInDown">{{ letter }}</span>
+        {% endfor %}
+    <span class="mx-md-4 mx-sm-2 mx-1"></span>
+    {% for letter in ['G','u','i','l','l','a','u','m','e'] %}
+        {% set i  = i + 1 %}
+        <span style="animation-delay: {{ i }}00ms" class="headline-text headline-text-white animate__animated animate__fadeInDown">{{ letter }}</span>
+    {% endfor %}
+    </span>
+    {% set i  = i + 1 %}
+    <span style="animation-delay: {{ i }}00ms;font-size: 5vw" class="headline-text-white animate__animated animate__fadeInUp" id="hello-text"></span>
+</span>
+
+<script>
+  const hello = document.getElementById('hello-text')
+  const text = ['Son\'a ponda site Web nya penya!', 'Bientôt un nouveau site web!', 'Neue Webseite erscheint in Kürze!', 'New website coming soon!']
+
+  let currentColor = '#ffffff'
+  let i = 0
+
+  function setTextColorChanger (string) {
+    if (currentColor === '#ffffff') {
+      const newColor = '#111111'
+      hello.innerHTML = '<span style="color:' + newColor + '">' + string + '</span>'
+      currentColor = newColor
+      return true
+    }
+    const newColor = '#ffffff'
+    hello.innerHTML = '<span style="color:' + newColor + '">' + string + '</span>'
+    currentColor = newColor
+  }
+
+  setTextColorChanger(text[i])
+  setInterval(function () {
+    i++
+    if (i > text.length - 1) {
+      i = 0
+    }
+
+    hello.style.animation = 'none'
+    hello.offsetHeight
+    hello.style.animation = null
+
+    setTextColorChanger(text[i])
+  }, 5000)
+</script>
